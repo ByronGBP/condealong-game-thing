@@ -26,7 +26,7 @@ function main() {
       </main>
     `)
     mainContainerElement.appendChild(splashElement);
-
+    
     splashButton = document.querySelector('button');
     splashButton.addEventListener('click', handleSplashClick)
 
@@ -40,20 +40,21 @@ function main() {
   var game = null;
   var handleGameOver = function () {
     destroyGame();
-    buildGameover();
+    buildGameover(game.score);
   };
 
   function buildGame() {
-    setTimeout(() => {
-      handleGameOver();
-    }, 1000);
+    game = new Game(mainContainerElement);
+    game.onOver(handleGameOver);
   }
   function destroyGame() {
+    game.destroy();
   }
 
   // -- Gameover
   var gameoverElement = null;
   var gameoverButton = null;
+
   var handleGameoverClick = function () {
     destroyGameover();
     buildSplash();
@@ -67,13 +68,13 @@ function main() {
         <button>Restart</button>
       </main>
     `);
-
     mainContainerElement.appendChild(gameoverElement);
+
     gameoverButton = document.querySelector('button');
     gameoverButton.addEventListener('click', handleGameoverClick);
 
     var scoreElement = document.querySelector('.score');
-    scoreElement.innerText = 0;
+    scoreElement.innerText = score;
   }
 
   function destroyGameover() {
