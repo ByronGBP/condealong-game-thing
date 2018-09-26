@@ -1,0 +1,68 @@
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- layout --- */
+
+#main-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  padding: 10px 13px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 728px;
+    margin: 0 auto;
+  }
+}
+
+/* --- components --- */
+.splash, .gameover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.splash__title {
+  margin-bottom: 10px;
+}
+
+.game {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.game__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.game__canvas {
+  width: 100%;
+  height: 100%;
+}
+
